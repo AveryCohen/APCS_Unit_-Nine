@@ -29,7 +29,7 @@ public class Shape {
     }
 
     public String toString() {
-        return "Shape is" + color + "and filled is " + filled;
+        return "Shape is " + color + " and filled is " + filled;
     }
 
 }
