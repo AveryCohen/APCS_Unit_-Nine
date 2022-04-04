@@ -11,7 +11,7 @@ public class SavingsAccount
      *   Constructs a bank account with a given interest rate.
      */
     public SavingsAccount(double rate)  {
-
+        interestRate = rate;
     }
 
     /**   <<< COMPLETE THIS METHOD >>>
@@ -19,8 +19,9 @@ public class SavingsAccount
      *   and a given interest rate.
      */
     public SavingsAccount(double initialBalance, double rate) {
-
-
+        if (initialBalance >= MINIMUM_BALANCE) {
+            super(initialBalance);
+        }
     }
 
 
