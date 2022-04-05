@@ -2,7 +2,7 @@
  *       <<< THIS CODE IS NOT COMPLETE >>>
  *   An account that earns interest at a fixed rate.
  */
-public class SavingsAccount
+public class SavingsAccount extends BankAccount
 {
     private double interestRate;
     public static final double MINIMUM_BALANCE = 10;
@@ -19,8 +19,10 @@ public class SavingsAccount
      *   and a given interest rate.
      */
     public SavingsAccount(double initialBalance, double rate) {
-        if (initialBalance >= MINIMUM_BALANCE) {
-            super(initialBalance);
+        super(initialBalance);
+        interestRate = rate;
+        if (initialBalance <= MINIMUM_BALANCE) {
+            deposit(MINIMUM_BALANCE-initialBalance);
         }
     }
 
@@ -29,6 +31,7 @@ public class SavingsAccount
      *   Adds the earned interest to the account balance.
      */
     public void addInterest()   {
+        super.deposit(getBalance() * interestRate);
         // <<< CODE NOT COMPLETE >>>
     }
 
@@ -38,6 +41,9 @@ public class SavingsAccount
      *  resulting balance > MINIMUM_BALANCE
      */
     public void withdraw(double amount)  {
+        if (getBalance() - amount >= MINIMUM_BALANCE) {
+            super.withdraw(amount);
+        }
         // <<< Code Not Complete >>>
     }
 }

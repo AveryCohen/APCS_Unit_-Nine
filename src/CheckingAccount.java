@@ -43,8 +43,8 @@ public class CheckingAccount extends BankAccount
      * don't forget to charge a transaction fee
      */
     public void withdraw(double amount)  {
-        if (super.getBalance() >= amount) {
-            super.withdraw(amount - TRANSACTION_FEE);
+        if (super.getBalance() - TRANSACTION_FEE >= amount) {
+            super.withdraw(amount + TRANSACTION_FEE);
         }
         // <<< Code Not Complete >>>
     }
@@ -56,9 +56,9 @@ public class CheckingAccount extends BankAccount
      */
     public void transfer(double amount, BankAccount other)  {
         // <<< Code Not Complete >>>
-        if (super.getBalance() >= amount) {
-            super.withdraw(amount - TRANSACTION_FEE);
-            other.deposit(amount - TRANSACTION_FEE);
+        if (super.getBalance() - (2 * TRANSACTION_FEE) >= amount) {
+            super.withdraw(amount + TRANSACTION_FEE);
+            other.deposit(amount);
         }
     }
 }
