@@ -1,4 +1,4 @@
-public class Player extends Person {
+public class Player {
     private String firstName;
     private String lastName;
 
@@ -13,6 +13,6 @@ public class Player extends Person {
     }
 
     public String toString() {
-        return lastName + " , " + firstName;
+        return lastName + ", " + firstName;
     }
 }
